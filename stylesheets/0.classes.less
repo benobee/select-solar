@@ -1,0 +1,177 @@
+/* Global Classes*/
+
+.orangeActionButton {
+    background: @brand;
+    border-color: @brand;
+    box-shadow: 0 2px 0 @darkbrand;
+}
+
+.animate-classes {
+    .hide(@delay) {
+        @speed: 0.8s;
+        transition: opacity @speed @delay, transform @speed @delay;
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    .show {
+        opacity: 1 !important;
+        transform: scale(1) !important;
+    }
+}
+
+.full-width {
+    .Index-page-content {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        .sqs-block-image {
+            padding: 0;
+        }
+    }
+}
+
+
+/* block quote */
+
+blockquote {
+    background: hsl(0, 0%, 99%);
+    border-left: 10px solid #ccc;
+    margin: 1.5em 0px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+    &:before {
+        color: grey;
+        content: open-quote;
+        font-size: 4em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+    }
+    .sqs-block-content {
+        p {
+            color: grey;
+            font-size: 1em;
+            line-height: 1.4em;
+            font-style: italic;
+        }
+    }
+}
+
+cite {
+    font-style: italic;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 1.5em;
+    line-height: 2em;
+    @media screen and (max-width: 768px) {
+        font-size:5vw;
+        line-height: 5.6vw;
+    }
+}
+
+
+/* Custom image block 2.0s */
+
+.image-block-custom {
+    .design-layout-card {
+        background: hsl(@blue, 45%, 55%);
+        .animate-classes;
+        height: 70vh;
+        @media screen and (max-width: 768px) {
+            .image-card {
+                .image-title-wrapper,
+                .image-subtitle-wrapper,
+                .image-button-wrapper {
+                    padding:0 60px;
+                }
+            }
+        }
+        .intrinsic {
+            .content-fit {
+                display: flex;
+                flex-wrap: wrap;
+                height: 70vh;
+                height: 100% !important;
+                img {
+                    object-fit: cover;
+                }
+            }
+        }
+        .image-overlay {
+            box-shadow: inset 20px 0 150px rgba(100, 100, 100, 0.7);
+        }
+        .image-card-wrapper {
+            @media screen and (min-width: 1140px) {
+                opacity:0;
+                background: @orangeBlueRadial;
+                .image-title-wrapper {
+                    .hide(0s);
+                }
+                .image-subtitle-wrapper {
+                    .hide(0.3s);
+                }
+                .image-button-wrapper {
+                    .hide(0.6s);
+                }
+            }
+            @media screen and (max-width:1139px) {
+                background: rgba(10, 10, 10, 0.5) !important;
+            }
+            transition:opacity 1.6s;
+            .image-button-wrapper {
+                a {
+                    .orangeActionButton
+                }
+            }
+        }
+        &[data-scrollmap-triggered-in="true"] {
+            * {
+                opacity: 1 !important;
+                transform: scale(1) !important;
+            }
+        }
+        &[data-scrollmap-triggered-in="true"] {
+            .image-title-wrapper {
+                p {
+                    color: #1a2448;
+                }
+            }
+            .image-card-wrapper {
+                opacity: 1;
+                .image-subtitle-wrapper {
+                    p {
+                        color: #2b6175;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+        @media screen and (max-width:1140px) {
+            display: flex;
+            flex-wrap: wrap;
+            .intrinsic,
+            .image-card-wrapper {
+                width: 100% !important;
+            }
+            .image-card-wrapper {
+                display: flex;
+                align-items: center;
+                background-color: rgba(10, 10, 10, 0.35);
+                position: absolute !important;
+                height: 100%;
+                top: 0;
+                left: 0;
+                box-shadow: inset 20px 0 150px rgba(10, 0, 100, 0.05) !important;
+                .image-card {
+                    max-width: 850px;
+                    padding: 0;
+                }
+                * {
+                    text-align: left !important;
+                    color: white !important;
+                }
+            }
+        }
+    }
+}

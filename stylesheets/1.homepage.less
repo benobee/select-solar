@@ -1,0 +1,231 @@
+/* HOMEPAGE*/
+
+.landing {
+    /* SVG */
+    #intro {
+        .Index-page-content {
+            padding-bottom: 0;
+        }
+        #solar-info-graphic {
+            &.no-smil {
+                g[id*="rays"] {
+                    display: none;
+                }
+                &[data-scrollmap-triggered-in="true"] {
+                    g[id*="panel"] {
+                        opacity: 1;
+                        transform: translate3d(0, 0px, 0);
+                    }
+                }
+            }
+            &.smil {
+                &[data-scrollmap-triggered-in="true"] {
+                    g[id*="rays"] {
+                        animation: shoot 4s infinite linear;
+                        -webkit-animation: shoot 4s infinite linear;
+                        animation-delay: 0.8s;
+                        path {
+                            opacity: 1;
+                        }
+                    }
+                    g[id*="panel"] {
+                        opacity: 1;
+                        transform: translate3d(0, 0px, 0);
+                    }
+                }
+            }
+            g[id*="rays"] {
+                @media screen and (max-width: 768px) {
+                    display:none;
+                }
+                stroke-dasharray: 3;
+                path {
+                    transition: opacity 2s 1s;
+                    stroke-width: 4px;
+                    opacity: 0;
+                }
+            }
+            g[id*="panel"] {
+                opacity: 0;
+                transition: opacity 2s 0.4s, transform 0.6s 0.4s;
+                transform: translate3d(0, -100px, 0);
+            }
+        }
+    }
+
+    /* banner */
+    #intro-banner {
+        height: 70vh;
+        .Index-page-content {
+            max-width: 100%;
+            padding: 0;
+        }
+        @media screen and (max-width: 1056px) {
+            @height: 92vw;
+            height: @height;
+            .sqs-block-gallery {
+                margin-top: -20px;
+                margin-bottom: -17px;
+                max-height: @height;
+                .slide {
+                    max-height: @height;
+                    .meta {
+                        padding-top: 0vw;
+                    }
+                }
+                .sqs-active-slide {
+                    max-height: @height;
+                    .meta {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        @max-height: 70vh;
+        height:@max-height;
+        .sqs-block-gallery {
+            cursor: pointer;
+            height: @max-height;
+            .slide {
+                background: rgba(10, 0, 60, 0.7);
+                img {
+                    opacity: 0.5 !important;
+                }
+                height: @max-height;
+            }
+            .sqs-active-slide {
+                height: @max-height;
+                .meta {
+                    display: block !important;
+                    opacity: 1 !important;
+                    visibility: visible !important;
+                }
+            }
+            .meta {
+                background: none;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 1.8s 1.6s !important;
+                .meta-inside {
+                    padding: 0;
+                    .meta-title {
+                        text-align: center;
+                        font-size: 2em;
+                        line-height: 1.5em;
+                        @media screen and (max-width: 1024px) {
+                            font-size:3.2vw;
+                            line-height: 3.5vw;
+                        }
+                        font-weight:500;
+                    }
+                }
+            }
+        }
+    }
+    #nm-solar-pv-testimonials {
+        #solar_review_widget {
+            display: flex;
+            justify-content: center;
+        }
+        .owl-carousel {
+            .item {
+                p:first-child {
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                }
+                p:not(:nth-child(1)) {
+                    display: none;
+                }
+                a {
+                    text-align: center;
+                    display: block;
+                    text-decoration: underline;
+                    &:after {
+                        content: "...";
+                    }
+                    &:hover {
+                        color: @brand;
+                    }
+                }
+            }
+        }
+    }
+    #intro-to-services {
+        .full-width;
+    }
+    #locations {
+        .animate-classes;
+        .Index-page-content {
+            max-width: 100%;
+        }
+        background:@lightgrey;
+        .summary-item-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .summary-item {
+            @media screen and (min-width: 1025px) {
+                width:18% !important;
+                margin: 1% !important;
+                .hide(0s);
+            }
+            @media screen and (max-width:1024px) {
+                width: 48% !important;
+                margin: 1% !important;
+            }
+            @media screen and (max-width:768px) {
+                width: 100% !important;
+            } //pointer-events:none;
+            .summary-title {
+                color: white;
+                padding: 0.6em 1em;
+                background: @brand;
+                font-size: 1.2em;
+                box-shadow: 2px 1px 10px hsla(30, 91%, 12%, 0.2);
+            }
+        }
+    }
+    #grid-types-gallery {
+        background: @lightgrey;
+        .Index-page-content {
+            max-width: 100%;
+        }
+        .Index-gallery-item {
+            .Index-gallery-item-image {
+                img {
+                    transition: opacity 0.3s, filter 0.3s;
+                }
+            }
+            &:hover {
+                img {
+                    opacity: 0.85;
+                }
+            }
+            .Index-gallery-item-content {
+                box-shadow: 0 0px 150px hsla(30, 91%, 32%, 0.2) inset;
+                background-color: rgba(10, 10, 10, 0.8);
+                .Index-gallery-item-content-heading {
+                    color: white;
+                    font-size: 1.7em;
+                }
+                .Index-gallery-item-content-body {
+                    p {
+                        color: @lightbrand;
+                        &:nth-child(2) {
+                            margin-top: 1.5em;
+                        }
+                    }
+                    a {
+                        .orangeActionButton;
+                        padding: 0.5em 1em;
+                        color: white;
+                        line-height: 1.4em;
+                        font-size: 1.2em;
+                    }
+                }
+            }
+        }
+    }
+}
