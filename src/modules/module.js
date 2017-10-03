@@ -8,6 +8,7 @@ const module = {
             this.carousel();
         },
         animate() {
+            /* solar SVG on landing page */
             const svg = document.querySelector("#solar-info-graphic");
 
             if (svg) {
@@ -18,6 +19,7 @@ const module = {
                 }
             };
 
+            /* Detects when element is viewable in viewport */
             Scrollmap.trigger({
                     target: "#solar-info-graphic",
                     surfaceVisible: 0.3
@@ -33,8 +35,6 @@ const module = {
                     Scrollmap.sequence(array, {
                         interval: 400,
                     }, (item) => {
-                        //add any code to be triggered when
-                        //the element is in the viewport
                         item.classList.add("show");
                     });
                 })
@@ -43,6 +43,7 @@ const module = {
                 });
         },
         carousel() {
+            /* initialize owl carousel */
             $(".owl-carousel").owlCarousel({
                 items: 1,
                 loop: true,
